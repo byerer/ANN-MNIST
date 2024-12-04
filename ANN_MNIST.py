@@ -228,7 +228,7 @@ def accuracy(parameters, types, top_n=1):
 
 
 # 部分训练的数量参数
-batch_size = 100
+batch_size = 15
 
 # 部分训练的累加梯度和平均梯度
 def grad_count(grad1,grad2,types):
@@ -309,17 +309,17 @@ def predict_show(parameters,count,img_type=test_img,img_num=test_num):
         print("predict : {}".format(predict(img_type[i],parameters).argmax()))
         show_img(i,'test',predict(img_type[i],parameters).argmax())
 
+
 # 模型初始化
 parameters = init_parameters()
-print(accuracy(parameters,"valid"))
 
 # 学习率
-learn_rate = 0.6 
+learn_rate = 0.15
 # 训练次数
-epoch_num = 1
+epoch_num = 15
 
 # 训练
-parameters = train(parameters, learn_rate, epoch_num)
+parameters = train(parameters, learn_rate, epoch_num, True)
 
 # 准确率测试
 print(accuracy(parameters, "valid"))
